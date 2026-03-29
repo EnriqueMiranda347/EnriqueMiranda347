@@ -9,7 +9,7 @@ I'm passionate about cybersecurity and love tackling complex challenges through 
 
 ## 🚨 Threat Hunting and Security Operations
 
-- [Threat Hunting and Security Operations]([https://github.com/EnriqueMiranda347/EnriqueMiranda347/edit/main/README.md](https://github.com/EnriqueMiranda347/threat-hunting-scenario-tor))
+- [Threat Hunting and Security Operations](https://github.com/EnriqueMiranda347/threat-hunting-scenario-tor))
 
 
 <hr/>
