@@ -26,7 +26,8 @@ Run this to set the policy that allows and requires a PIN for the OS drive.
      
 #>
 
-# $path = "HKLM:\SOFTWARE\Policies\Microsoft\FVE"
+# 
+$path = "HKLM:\SOFTWARE\Policies\Microsoft\FVE"
 if (-not (Test-Path $path)) { New-Item -Path $path -Force }
 Set-ItemProperty -Path $path -Name "UseAdvancedStartup" -Value 1 -Type DWord
 Set-ItemProperty -Path $path -Name "UseTPMPIN" -Value 1 -Type DWord
