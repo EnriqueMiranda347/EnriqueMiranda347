@@ -26,19 +26,23 @@ Run this to set the policy that allows and requires a PIN for the OS drive.
      
 #>
 
-# 
+# Define the registry path and property details
 $registryPath = "HKLM:\SOFTWARE\Policies\Microsoft\FVE"
-$name1 = "UseAdvancedStartup"
-$name2 = "UseTPMPIN"
-$name3 = "UseTPMKeyPIN"
+$values = @{
+    "UseAdvancedStartup" = 1
+    "UseTPMPIN"          = 1
+    "UseTPMKeyPIN"       = 1
+}
 
+# 1. Ensure the registry key path exists
 if (!(Test-Path $registryPath)) {
     New-Item -Path $registryPath -Force | Out-Null
     Write-Host "Created registry key: $registryPath" -ForegroundColor Cyan
 }
 
-Set-ItemProperty -Path $registryPath -Name $name1 -Value 1 -Type DWord
-Set-ItemProperty -Path $registryPath -Name $name2 -Value 1 -Type DWord
-Set-ItemProperty -Path $registryPath -Name $name3 -Value 1 -Type DWord
+# 2. Set the DWORD values for TPM+PIN Requirement
+foreach ($name in $values.Keys) {
+    Set-ItemProperty -Path $registryPath -Name $name -Value $values[$name] -Type DWord
+}
 
-Write-Host "Successfully enabled TPM+PIN Policy at $registryPath" -ForegroundColor Green
+Write-Host "Successfully enabled BitLocker TPM+PIN policies at $registryPath" -ForegroundColor Green
