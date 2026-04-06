@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS:
-This "watches the watcher." It logs an event if someone (like an attacker) tries to change these very audit settings.
+Logs an event if someone tries to change these very audit settings.
     
 
 .NOTES
